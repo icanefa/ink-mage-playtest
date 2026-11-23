@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "符字師明體";
+  src: url("assets/NotoSerifTC-Bold-t16-subset.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+:root {
+  color-scheme: light;
+  --ink: #25231e;
+  --paper: #faf7ef;
+  --red: #872f27;
+  --rule: #b3a994;
+  --serif: "符字師明體", "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: radial-gradient(ellipse at top left, #fffdf8, transparent 68%), #f2eee3;
+  font: 1rem/1.6 system-ui, "Microsoft JhengHei", sans-serif;
+}
+main { max-width: 74rem; margin: auto; padding: clamp(1.1rem, 3.4vw, 3rem) clamp(1rem, 5vw, 4rem); }
+article { border-top: 3px double var(--ink); border-bottom: 1px solid var(--rule); }
+.heading { padding: clamp(1.1rem, 2.8vw, 2.15rem) 0 1.4rem; }
+.title-line, .actions, .dialog-actions { display: flex; align-items: center; }
+h1, h2, p, figure { margin: 0; }
+h1 { font: 700 clamp(3.65rem, 7.2vw, 6.55rem)/1.18 var(--serif); letter-spacing: .065em; }
+.seal {
+  display: inline-block;
+  margin: .6rem 0 0 .45rem;
+  padding: .26em .18em .25em .32em;
+  border: 3px double var(--paper);
+  outline: 1px solid var(--red);
+  border-radius: .15em;
+  background: var(--red); color: #fff9ed;
+  font: 700 clamp(.9rem, 1.5vw, 1.1rem)/1.08 var(--serif);
+  letter-spacing: .14em;
+  transform: rotate(-3deg);
+}
+.intro { margin-top: .65rem; font: 500 clamp(1.05rem, 1.8vw, 1.26rem)/1.8 "Songti TC", "Microsoft JhengHei", serif; }
+.scroll { border-inline: clamp(4px, .6vw, 9px) solid #443d32; background: #e1d8c7; }
+.scroll img { display: block; width: 100%; height: auto; }
+figcaption { padding: .5rem 0 .85rem; font-size: .875rem; color: #625c50; letter-spacing: .07em; }
+figcaption span { padding-inline: .4em; color: var(--rule); }
+.offer-row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.3rem 0 1.55rem; border-top: 1px solid var(--rule); }
+.offer-row h2 { font-size: 1rem; font-weight: 600; letter-spacing: .09em; }
+.price { display: flex; align-items: baseline; gap: .38em; color: var(--ink); line-height: 1.18; }
+.price span { font-family: Georgia, serif; font-size: 1.35rem; }
+.price strong { font: 500 clamp(2.65rem, 4.8vw, 3.7rem)/1.15 Georgia, serif; font-variant-numeric: lining-nums tabular-nums; }
+.actions { gap: .75rem; }
+button {
+  cursor: pointer;
+  min-height: 48px;
+  padding: .7rem clamp(.8rem, 2.3vw, 1.75rem);
+  border-radius: 3px;
+  font: 600 1rem/1.45 system-ui, "Microsoft JhengHei", sans-serif;
+  letter-spacing: .035em;
+}
+.primary { color: #fffaf2; background: var(--red); border: 1px solid var(--red); }
+.primary:hover { background: #68231e; }
+.secondary { color: var(--ink); background: transparent; border: 1px solid #928875; }
+.secondary:hover { background: #eae4d7; }
+button:focus-visible { outline: 3px solid #185c72; outline-offset: 3px; }
+dialog, .end {
+  color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--red);
+  padding: clamp(1.3rem, 4vw, 2.3rem);
+}
+dialog { width: min(27rem, calc(100% - 2.5rem)); }
+dialog::backdrop { background: rgb(28 25 19 / 63%); }
+dialog h2, .end h2 { font: 700 1.75rem/1.4 var(--serif); }
+dialog p, .end p { margin: .75rem 0 0; }
+.dialog-actions { flex-wrap: wrap; gap: .65rem; margin-top: 1.5rem; }
+.end { max-width: 28rem; margin: 12vh auto; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.2rem; border-radius: 3px; font-weight: 600; text-decoration: none; }
+[hidden] { display: none !important; }
+.quiet { background: transparent; border: 0; text-decoration: underline; color: var(--ink); }
+fieldset { margin: 1rem 0 0; padding: .6rem 1rem; border: 1px solid var(--rule); }
+fieldset label { display: flex; align-items: center; gap: .4rem; min-height: 44px; cursor: pointer; }
+.suggestions { display: flex; flex-wrap: wrap; gap: .4rem; margin: .75rem 0; }
+.suggestions button { min-height: 44px; padding: .4rem .65rem; color: var(--ink); background: transparent; border: 1px solid var(--rule); }
+#detail-label { display: block; margin-top: .8rem; }
+#email-form { display: grid; gap: .55rem; margin-top: 1rem; }
+#email-address { width: 100%; min-height: 44px; padding: .5rem; font: inherit; }
+.write-status:empty { display: none; }
+textarea { display: block; width: 100%; padding: .5rem; font: inherit; resize: vertical; }
+#feedback-help { font-size: .92rem; }
+dialog { max-height: 90vh; overflow-y: auto; }
+@media (max-width: 43rem) {
+  .heading { padding-bottom: 1.1rem; }
+  .scroll img { aspect-ratio: 2.15; height: auto; object-fit: cover; object-position: 12% center; }
+  .offer-row { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .actions { flex-wrap: wrap; }
+  .actions button { flex: 1 1 10rem; }
+}

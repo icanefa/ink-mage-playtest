@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>符字師｜主持人開場</title>
+  <link rel="stylesheet" href="page.css">
+  <script src="registration.js?v=3"></script>
+  <style>
+    form { display: grid; gap: 1rem; margin-top: 1.25rem; }
+    label { display: grid; gap: .25rem; }
+    input, select { padding: .65rem; font: inherit; }
+  </style>
+</head>
+<body>
+  <main><section class="end" aria-labelledby="heading">
+    <h2 id="heading">主持人開場</h2>
+    <p id="readiness" hidden></p>
+    <form action="index.html" method="get">
+      <label>場次代碼（例如 P-001）
+        <input name="session" placeholder="P-001" pattern="P-[0-9]{3,6}" title="P- 加上 3 至 6 位數字" required autocomplete="off">
+      </label>
+      <label>本場展示價格
+        <select name="price">
+          <option value="268">NT$268</option>
+          <option value="298" selected>NT$298</option>
+          <option value="328">NT$328</option>
+        </select>
+      </label>
+      <button class="primary" type="submit">開啟玩家頁面</button>
+    </form>
+    <p><a href="index.html?review=feedback">查看與匯出本機回覆</a></p>
+  </section></main>
+  <script>
+    const readiness = document.getElementById("readiness");
+    if (!window.inkMageRegistrationEnabled || !window.inkMageSheetEndpoint) {
+      readiness.hidden = false;
+      readiness.textContent = window.inkMageRegistrationEnabled
+        ? "尚未設定試算表收件網址，目前只能檢查操作。"
+        : "目前為離線預覽，回覆不會寫入試算表。";
+    }
+  </script>
+</body>
+</html>

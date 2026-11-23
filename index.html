@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>符字師｜完整版本</title>
+  <link rel="stylesheet" href="page.css">
+  <script defer src="registration.js?v=3"></script>
+  <script defer src="page.js?v=3"></script>
+</head>
+<body>
+  <main>
+    <article id="offer" aria-labelledby="title">
+      <header class="heading">
+        <div class="title-line"><h1 id="title">符字師</h1><span class="seal">水墨<br>解謎</span></div>
+        <p class="intro">在水墨畫卷中探索，拆取漢字部件，組出新字解開沿途的機關。</p>
+      </header>
+      <figure>
+        <div class="scroll"><img src="assets/first-scene.webp" width="1403" height="411" alt="紅衣符字師站在山間，前方依序有火盆、硯臺與擋路的木障。"></div>
+        <figcaption>遊戲實機畫面<span aria-hidden="true">／</span>第一場景</figcaption>
+      </figure>
+      <section class="offer-row" aria-labelledby="price-label">
+        <div>
+          <h2 id="price-label">完整版本預計售價</h2>
+          <p class="price"><span>NT$</span><strong id="amount"></strong></p>
+        </div>
+        <div class="actions">
+          <button class="primary" id="notify" type="button">收到上市通知</button>
+          <button class="secondary" id="finish" type="button">不登記</button>
+        </div>
+      </section>
+    </article>
+    <section id="end" class="end" aria-labelledby="end-title" hidden>
+      <h2 id="end-title" tabindex="-1">展示已結束</h2>
+      <p id="end-text">謝謝你的時間。</p>
+    </section>
+    <section id="records" class="end" hidden>
+      <h2>本機回覆</h2>
+      <p id="count"></p>
+      <button id="download" type="button" class="primary">下載回覆 CSV</button>
+    </section>
+    <noscript>請啟用瀏覽器的 JavaScript，以顯示本場價格與登記選項。</noscript>
+  </main>
+  <dialog id="notice" aria-labelledby="notice-title">
+    <h2 id="notice-title">想怎麼關注《符字師》？</h2>
+    <form id="email-form">
+      <label for="email-address">通知用 Email</label>
+      <input id="email-address" type="email" maxlength="254" autocomplete="off" required placeholder="name@example.com">
+      <p>你的 Email 只用於《符字師》上市通知。</p>
+      <button class="primary" type="submit">送出登記</button>
+    </form>
+    <div class="dialog-actions">
+      <button class="secondary" id="alternative" type="button">其他關注方式</button>
+      <button class="quiet" type="button" data-back>返回價格頁</button>
+    </div>
+    <p class="write-status" role="status"></p>
+  </dialog>
+  <dialog id="feedback" aria-labelledby="feedback-title">
+    <h2 id="feedback-title"></h2>
+    <form id="feedback-form">
+      <fieldset id="reason-group" hidden>
+        <legend>請選一個最符合的原因（必填）</legend>
+        <label><input type="radio" name="reason" value="太貴" required> 太貴</label>
+        <label><input type="radio" name="reason" value="沒興趣"> 沒興趣</label>
+        <label><input type="radio" name="reason" value="不想留個資"> 不想留個資</label>
+        <label><input type="radio" name="reason" value="其他"> 其他</label>
+      </fieldset>
+      <div id="follow-group" hidden>
+        <p>可以選一個方式或自己填寫，不用留下帳號。</p>
+        <div class="suggestions" aria-label="建議的關注方式">
+          <button type="button">Steam 商店公告</button>
+          <button type="button">Discord 社群公告</button>
+          <button type="button">遊戲官網</button>
+        </div>
+      </div>
+      <label id="detail-label" hidden><span id="detail-caption"></span>
+        <textarea id="detail" rows="2" maxlength="160"></textarea>
+      </label>
+      <p class="write-status" role="status"></p>
+      <div class="dialog-actions">
+        <button class="primary" type="submit">送出回覆</button>
+        <button class="quiet" type="button" data-back>返回價格頁</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
